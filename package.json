@@ -1,0 +1,62 @@
+{
+  "name": "translations-key-finder",
+  "displayName": "Translations Key Finder",
+  "description": "Show translation values inline for i18n keys.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "images/translations-key-finder-icon.png",
+  "publisher": "mksawic",
+  "author": {
+    "name": "Michal Sawicki",
+    "email": "mksawic@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mksawic/translations-key-finder.git"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Translation Key Finder",
+      "properties": {
+        "translationKeyFinder.translationFile": {
+          "type": "string",
+          "default": "src/app/translations/i18n/locale/en.json",
+          "description": "Path to the translation JSON file"
+        },
+        "translationKeyFinder.displayMode": {
+          "type": "string",
+          "enum": [
+            "after",
+            "hover",
+            "codelens"
+          ],
+          "default": "hover",
+          "description": "How to display translation values: inline ghost text, hover tooltip, or codelens"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.0.0",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2"
+  }
+}
